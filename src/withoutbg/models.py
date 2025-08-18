@@ -455,9 +455,8 @@ class SnapModel:
 
             # Resize alpha to original image size
             alpha_resized = alpha_channel.resize(
-                original_size,
-                Image.Resampling.LANCZOS
-                )
+                original_size, Image.Resampling.LANCZOS
+            )
 
             # Convert original image to RGBA
             if image.mode != "RGBA":
