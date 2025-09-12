@@ -36,13 +36,6 @@ See the power of AI background removal in action:
 
 *Perfect edge detection, hair details, and transparent backgrounds*
 
-## 📦 Model Tiers
-
-| Tier | Quality | Usage | License |
-|------|---------|-------|---------|
-| 🟢 **Snap** | Good | Local/Free | Apache 2.0 |
-| 🟡 **Focus** | Better | Commercial | Licensed |
-| 🔴 **Studio** | Best | Cloud API | SaaS credits |
 
 ## 💻 Python API
 
@@ -53,7 +46,7 @@ from withoutbg import remove_background
 result = remove_background("input.jpg")
 result.save("output.png")
 
-# Cloud processing with Studio API (best quality)
+# Cloud processing with API (best quality)
 result = remove_background("input.jpg", api_key="sk_your_key")
 
 # Batch processing
@@ -76,7 +69,7 @@ withoutbg photo.jpg --output result.png
 withoutbg photo.jpg --format webp --quality 90
 ```
 
-### Cloud API (Studio)
+### Cloud API 
 ```bash
 # Set API key via environment
 export WITHOUTBG_API_KEY="sk_your_api_key"
@@ -130,7 +123,7 @@ product_images = Path("products").glob("*.jpg")
 results = withoutbg.remove_background_batch(
     list(product_images),
     output_dir="catalog-withoutbg/",
-    api_key="sk_your_key"  # Use Studio for best quality
+    api_key="sk_your_key"  # Use for best quality
 )
 ```
 
@@ -196,23 +189,14 @@ print(usage)
 
 ## 🤝 Commercial Licensing
 
-### Focus License
-- ✅ Dockerized model for easy deployment
-- ✅ Multiple runtime options: ONNX, TensorRT, AWS Inferentia
-- ✅ Self-hosted deployment
-- ✅ Better quality than Snap
-- ✅ Priority support
-- ✅ No API dependencies
 
-[Get Focus License →](https://withoutbg.com/focus)
-
-### Studio API (Pay-per-use)
+### API (Pay-per-use)
 - ✅ Best quality processing
 - ✅ Best quality results
 - ✅ 99.9% uptime SLA
 - ✅ Scalable infrastructure
 
-[Try Studio API →](https://withoutbg.com/remove-background)
+[Try API →](https://withoutbg.com/remove-background)
 
 ## 📚 Documentation
 
