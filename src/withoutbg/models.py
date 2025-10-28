@@ -503,15 +503,15 @@ class OpenSourceModel:
         return alpha_image
 
     def _calculate_refiner_size(self, original_size: tuple[int, int]) -> tuple[int, int]:
-        """Calculate optimal size for refiner model (max 1024px on bigger side)."""
+        """Calculate optimal size for refiner model (max 800px on bigger side)."""
         width, height = original_size
-        max_size = 1024
+        max_size = 800
         
-        # If both dimensions are already <= 1024, no resizing needed
+        # If both dimensions are already <= 800, no resizing needed
         if width <= max_size and height <= max_size:
             return original_size
         
-        # Calculate scale factor to make the bigger side = 1024
+        # Calculate scale factor to make the bigger side = 800
         scale = max_size / max(width, height)
         new_width = int(width * scale)
         new_height = int(height * scale)
@@ -524,7 +524,7 @@ class OpenSourceModel:
         """
         Stage 3: Refine alpha channel using RGB + alpha concatenated input.
         
-        Optimizes performance by resizing large images to max 1024px on the bigger side
+        Optimizes performance by resizing large images to max 800px on the bigger side
         for inference, then upscaling the result back to original resolution.
 
         Parameters:
@@ -537,7 +537,7 @@ class OpenSourceModel:
         # Get original image size
         original_size = rgb_image.size
         
-        # Calculate optimal size for refiner model (max 1024px on bigger side)
+        # Calculate optimal size for refiner model (max 800px on bigger side)
         refiner_size = self._calculate_refiner_size(original_size)
         
         # Resize RGB image for refiner model if needed
