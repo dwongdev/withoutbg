@@ -1,0 +1,13 @@
+// Demo components for background removal interface
+export { Header } from './Header'
+export { Footer } from './Footer'
+export { ProcessingTypeTabs } from './ProcessingTypeTabs'
+export { ProcessingModeDescription } from './ProcessingModeDescription'
+export { SettingsPanel } from './SettingsPanel'
+export { ImageUploadZone } from './ImageUploadZone'
+export { ErrorMessage } from './ErrorMessage'
+export { ImagePreview } from './ImagePreview'
+export { ImageComparisonCard } from './ImageComparisonCard'
+export { ProcessingResults } from './ProcessingResults'
+export { Sidebar } from './Sidebar'
+export { RemoveBackground } from './RemoveBackground'

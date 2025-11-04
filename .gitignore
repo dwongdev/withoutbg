@@ -210,9 +210,10 @@ $RECYCLE.BIN/
 bandit-report.json
 test_images/
 output/
-models/
-!src/withoutbg/models/
 llmcontext/
+
+# Model files (tracked in git, but .onnx files ignored above)
+# models/checkpoints/ contains .onnx files downloaded on first use
 
 # API keys and secrets
 .env.local

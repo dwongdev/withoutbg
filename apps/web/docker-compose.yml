@@ -1,0 +1,48 @@
+# Docker Compose for withoutbg web application (development)
+# Run from repository root: docker-compose -f apps/web/docker-compose.yml up
+
+services:
+  # Backend service with hot-reload for development
+  backend:
+    build:
+      context: ../..
+      dockerfile: apps/web/backend/Dockerfile
+    container_name: withoutbg-backend-dev
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PORT=8000
+      - RELOAD=true
+    volumes:
+      # Mount source code for hot-reload
+      - ../../packages/python/src:/usr/local/lib/python3.13/site-packages/withoutbg:ro
+      - ./backend:/app/backend:ro
+      - ../../models/checkpoints:/app/checkpoints:ro
+    working_dir: /app
+    command: [ "/app/apps/web/backend/.venv/bin/python", "-m", "uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload" ]
+    networks:
+      - withoutbg-network
+
+  # Frontend service with Vite dev server
+  frontend-dev:
+    image: node:20-alpine
+    container_name: withoutbg-frontend-dev
+    working_dir: /app
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - VITE_API_URL=http://localhost:8000/api
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    command: sh -c "npm install && npm run dev"
+    depends_on:
+      - backend
+    networks:
+      - withoutbg-network
+
+networks:
+  withoutbg-network:
+    driver: bridge
