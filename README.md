@@ -7,6 +7,8 @@
 
 Remove backgrounds from images instantly with AI. Choose between local processing (free) or cloud API (best quality).
 
+![Intro](/images/intro.png)
+
 ## 🚀 Quick Start
 
 ### Python SDK
@@ -28,6 +30,13 @@ withoutbg image.jpg
 ```
 
 > **Don't have `uv` yet?** Download it at [astral.sh/uv](https://astral.sh/uv) - it's a fast, modern Python package installer.
+
+### Example Outputs from the Open Source Model
+![Example 1](/sample-results/open-source-focus/example1.png)
+![Example 5](/sample-results/open-source-focus/example5.png)
+![Example 3](/sample-results/open-source-focus/example3.png)
+![Example 6](/sample-results/open-source-focus/example6.png)
+![Example 4](/sample-results/open-source-focus/example4.png)
 
 ### Web Application
 
