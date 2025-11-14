@@ -192,7 +192,7 @@ def _process_single(
         format=pil_format.get(format.lower(), format.upper()),
         **save_kwargs,
     )
-    
+
     # Close the result image to ensure file handles are released on Windows
     result.close()
     # Also close the original if we created a new background
@@ -275,7 +275,7 @@ def _process_batch(
                     format=pil_format.get(format.lower(), format.upper()),
                     **save_kwargs,
                 )
-                
+
                 # Close the result image to ensure file handles are released on Windows
                 result.close()
                 # Also close the original if we created a new background

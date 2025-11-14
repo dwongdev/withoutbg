@@ -686,7 +686,7 @@ class TestCLITestUtilities:
                     assert image.mode == expected_mode
                 if expected_size:
                     assert image.size == expected_size
-                
+
                 return image.size  # Return size instead of image object
 
         # Create test output file

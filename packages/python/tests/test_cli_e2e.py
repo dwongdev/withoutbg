@@ -45,7 +45,10 @@ class TestCLIE2E:
         assert output_path.exists(), "Output file was not created"
 
         # Verify output image properties
-        with Image.open(output_path) as output_image, Image.open(real_test_image_path) as original_image:
+        with (
+            Image.open(output_path) as output_image,
+            Image.open(real_test_image_path) as original_image,
+        ):
             assert output_image.mode == "RGBA", "Output should be RGBA"
             assert (
                 output_image.size == original_image.size
@@ -55,7 +58,9 @@ class TestCLIE2E:
             alpha_channel = output_image.split()[-1]
             alpha_values = list(alpha_channel.getdata())
             unique_alpha_values = set(alpha_values)
-            assert len(unique_alpha_values) > 1, "Alpha channel should have varying values"
+            assert (
+                len(unique_alpha_values) > 1
+            ), "Alpha channel should have varying values"
 
     @pytest.mark.real_processing
     @pytest.mark.api
@@ -91,7 +96,10 @@ class TestCLIE2E:
         assert output_path.exists(), "Output file was not created"
 
         # Verify output image properties
-        with Image.open(output_path) as output_image, Image.open(real_test_image_path) as original_image:
+        with (
+            Image.open(output_path) as output_image,
+            Image.open(real_test_image_path) as original_image,
+        ):
             assert output_image.mode == "RGBA", "Output should be RGBA"
             assert (
                 output_image.size == original_image.size
@@ -183,9 +191,10 @@ class TestCLIE2E:
                     "webp": "WEBP",
                 }
                 expected_format = expected_pil_format.get(fmt.lower(), fmt.upper())
-                assert (
-                    output_image.format == expected_format
-                ), f"Output format should be {expected_format}, got {output_image.format}"
+                assert output_image.format == expected_format, (
+                    f"Output format should be {expected_format}, "
+                    f"got {output_image.format}"
+                )
 
     @pytest.mark.real_processing
     def test_e2e_large_image_processing(self, temp_output_dir):
@@ -365,7 +374,10 @@ class TestCLIE2E:
             assert api_output.exists(), "API output not created"
 
             # Compare basic properties
-            with Image.open(opensource_output) as opensource_image, Image.open(api_output) as api_image:
+            with (
+                Image.open(opensource_output) as opensource_image,
+                Image.open(api_output) as api_image,
+            ):
                 assert (
                     opensource_image.size == api_image.size
                 ), "Both models should produce same size output"
