@@ -385,6 +385,9 @@ Apache License 2.0 - see [LICENSE](LICENSE)
 - **Depth Anything V2**: Apache 2.0 License (only vits model)
 - **ISNet**: Apache 2.0 License
 
+### Acknowledgements
+- **segmentation-models-pytorch**: MIT License (used to train matting/refiner models)
+
 See [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md) for complete attribution.
 
 ## 🤝 Contributing
