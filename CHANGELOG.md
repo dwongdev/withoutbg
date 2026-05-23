@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.0](https://github.com/withoutbg/withoutbg/compare/v1.4.0...v1.5.0) (2026-05-23)
+
+
+### ✨ Features
+
+* added support for pasting images from clipboard ([f7f7ef5](https://github.com/withoutbg/withoutbg/commit/f7f7ef5b2f087d2eb068f9724bbfab2b203d84b6))
+
 ## [1.4.0](https://github.com/withoutbg/withoutbg/compare/v1.3.1...v1.4.0) (2026-04-16)
 
 
